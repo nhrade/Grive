@@ -20,7 +20,6 @@ const
 (
     CLIENT_ID = "726901253511-bneug4hg5tgh5pnsgmltuj1a5cqchuo4.apps.googleusercontent.com"
     CLIENT_SECRET = "bU0MjgUVXH4CtLZazOyuw5vp"
-    AUTH_FNAME = "auth.txt"
 )
 
 type File struct {
