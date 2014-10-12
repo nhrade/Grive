@@ -22,3 +22,6 @@ To upload a file
 
 To delete a file
 `./grive delete Title`
+
+To rename file
+`./grive rename [target] [source]`
