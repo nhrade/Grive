@@ -12,13 +12,13 @@ To build go must be installed along with the dependencies
   - code.google.com/p/goauth2/oauth
   
 then run
-  - go build
+  - `go build`
 
 To use
-make grive executable and then ./grive [command] [args]
+make grive executable and then `./grive [command] [args]`
 
 To upload a file
-./grive upload Title FileName
+`./grive upload Title FileName`
 
 To delete a file
-./grive delete Title
+`./grive delete Title`
