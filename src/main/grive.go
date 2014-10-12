@@ -35,7 +35,7 @@ func cliArgs(svc *drive.Service){
             if len(os.Args) != 3{
                 basicUsage("delete [title]")
             }
-            deleteFile(os.Args[2])
+            deleteFile(os.Args[2], svc)
         case "list":
             // listFiles(os.Args(2))
         default:

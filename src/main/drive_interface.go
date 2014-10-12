@@ -71,13 +71,46 @@ func getToken() string {
 }
 */
 
+func allFiles(d *drive.Service) ([]*drive.File, error) {
+  var fs []*drive.File
+  tok := ""
+  for {
+    q := d.Files.List()
+    if tok != "" {
+      q = q.PageToken(tok)
+    }
+    r, err := q.Do()
+    if err != nil {
+      fmt.Printf("An error occurred: %v\n", err)
+      return fs, err
+    }
+    fs = append(fs, r.Items...)
+    tok = r.NextPageToken
+    if tok == "" {
+      break
+    }
+  }
+  return fs, nil
+}
 
-func deleteFile(title string){
-    //var fls []*drive.File
+func deleteFile(title string, svc *drive.Service){
+    files, ferr := allFiles(svc)
+    if ferr != nil {
+        log.Fatalf("Error occured: %v\n", ferr)
+    }
+    for _, f := range files {
+        if f.Title == title{
+            if err := svc.Files.Delete(f.Id).Do(); err != nil {
+                log.Fatalf("Error occuredL %v\n", err)
+            }
+            log.Printf("Deleted: ID=%v Title=%v", f.Id, f.Title)
+            os.Exit(0)
+        }
+    }
 }
 
 func auth() *drive.Service {
-
+    //I literally tore code in and out of auth several times
       var t *oauth.Transport
 
 
