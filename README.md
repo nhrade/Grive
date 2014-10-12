@@ -18,10 +18,10 @@ To use
 make grive executable and then `./grive [command] [args]`
 
 To upload a file
-`./grive upload Title FileName`
+`./grive upload [title] [filename]`
 
 To delete a file
-`./grive delete Title`
+`./grive delete [title]`
 
 To rename file
 `./grive rename [target] [source]`
