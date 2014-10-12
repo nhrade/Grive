@@ -55,21 +55,6 @@ func uploadFile(file *File, svc *drive.Service){
     log.Printf("Created: ID=%v Title=%v\n", r.Id, r.Title)
 }
 
-/*
-func writeToFile(fname string, con string) {
-    byteCon := make([]byte, len(con))
-    copy(byteCon[:], con)
-    ioutil.WriteFile(fname, byteCon, 0644)
-}
-
-
-func getToken() string {
-    if con, err := ioutil.ReadFile(TOK_FNAME); err == nil {
-        return string(con)
-    }
-    return ""
-}
-*/
 
 func allFiles(d *drive.Service) ([]*drive.File, error) {
   var fs []*drive.File
@@ -91,6 +76,24 @@ func allFiles(d *drive.Service) ([]*drive.File, error) {
     }
   }
   return fs, nil
+}
+
+func renameFile(target string, src string, svc *drive.Service){
+    files, ferr := allFiles(svc)
+    if ferr != nil {
+        log.Fatalf("Error occured: %v\n", ferr)
+    }
+    for _, f := range files {
+        if f.Title == src {
+            f.Title = target
+            _, err := svc.Files.Patch(f.Id, f).Do()
+            if err != nil {
+                log.Fatalf("Err: Could not rename. %v\n", err)
+            }
+            log.Printf("Renamed: ID=%v Title=%v", f.Id, f.Title)
+            os.Exit(0)
+        }
+    }
 }
 
 func deleteFile(title string, svc *drive.Service){

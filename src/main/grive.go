@@ -36,8 +36,11 @@ func cliArgs(svc *drive.Service){
                 basicUsage("delete [title]")
             }
             deleteFile(os.Args[2], svc)
-        case "list":
-            // listFiles(os.Args(2))
+        case "rename":
+            if(len(os.Args) != 4){
+                basicUsage("rename [targetTitle] [srcTitle]")
+            }
+            renameFile(os.Args[2], os.Args[3], svc)
         default:
             log.Fatal("Err: Unknown command")
     }
