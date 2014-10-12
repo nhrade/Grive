@@ -6,7 +6,7 @@ A command line interface for google drive written in go
 Made by K.A @ HackRU
 
 
-To build go must be installed along with the dependencies
+To build go must be installed along with the dependencies using the go get tool
   - github.com/skratchdot/open-golang
   - code.google.com/p/google-api-go-client/drive/v2
   - code.google.com/p/goauth2/oauth
