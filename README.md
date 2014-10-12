@@ -1,4 +1,4 @@
 Grypt
 =====
 
-A XOR encrypter for google drive, that encrypts drive files.
+A command line interface for google drive written in go
