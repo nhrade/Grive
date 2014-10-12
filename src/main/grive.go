@@ -32,7 +32,12 @@ func cliArgs(svc *drive.Service){
             file := File{os.Args[2], os.Args[3]}
             uploadFile(&file, svc)
         case "delete":
-            // deleteFiles()
+            if len(os.Args) != 3{
+                basicUsage("delete [title]")
+            }
+            deleteFile(os.Args[2])
+        case "list":
+            // listFiles(os.Args(2))
         default:
             log.Fatal("Err: Unknown command")
     }
