@@ -16,10 +16,11 @@ import
     "fmt"
 )
 
+// For safety reasons I removed the CLIENT_ID and CLIENT_SECRET, signup for a google API account to use your own.
 const
 (
-    CLIENT_ID = "726901253511-bneug4hg5tgh5pnsgmltuj1a5cqchuo4.apps.googleusercontent.com"
-    CLIENT_SECRET = "bU0MjgUVXH4CtLZazOyuw5vp"
+    CLIENT_ID = ""
+    CLIENT_SECRET = ""
 )
 
 type File struct {
