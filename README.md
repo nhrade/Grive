@@ -3,7 +3,7 @@ Grive
 
 A command line interface for google drive written in go
 
-Made at @ HackRU
+Made @ HackRU
 
 
 To build go must be installed along with the dependencies using the go get tool
