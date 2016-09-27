@@ -1,6 +1,6 @@
 /*
-*    grypt.go
-*    author: K.A
+*    grive.go
+*    author: Noah
 */
 
 package main
